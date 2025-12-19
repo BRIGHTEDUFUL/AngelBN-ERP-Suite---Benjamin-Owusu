@@ -37,17 +37,17 @@ const BreakingNewsTicker: React.FC = () => {
 
   return (
     <>
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-2xl animate-in slide-in-from-bottom-8 duration-500">
-        <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex items-center overflow-hidden h-12 pr-1">
+      <div className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] md:w-[95%] max-w-2xl animate-in slide-in-from-bottom-8 duration-500">
+        <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl shadow-2xl flex items-center overflow-hidden h-11 md:h-12 pr-1">
           {/* Label */}
-          <div className="h-full bg-red-600 px-4 flex items-center gap-2 shrink-0">
-             <Megaphone size={14} className="text-white animate-bounce" />
-             <span className="text-white font-black text-[10px] uppercase tracking-widest hidden sm:block">Update</span>
+          <div className="h-full bg-red-600 px-3 md:px-4 flex items-center gap-1.5 md:gap-2 shrink-0">
+             <Megaphone size={12} className="text-white animate-bounce md:w-3.5 md:h-3.5" />
+             <span className="text-white font-black text-[9px] md:text-[10px] uppercase tracking-wider md:tracking-widest hidden sm:block">Update</span>
           </div>
 
           {/* Current Headline */}
-          <div className="flex-1 px-4 overflow-hidden">
-             <div key={currentIndex} className="animate-in slide-in-from-right-4 fade-in duration-700 text-[11px] sm:text-xs font-bold text-gray-200 truncate">
+          <div className="flex-1 px-3 md:px-4 overflow-hidden">
+             <div key={currentIndex} className="animate-in slide-in-from-right-4 fade-in duration-700 text-[10px] sm:text-[11px] md:text-xs font-bold text-gray-200 truncate">
                {headlines[currentIndex]}
              </div>
           </div>

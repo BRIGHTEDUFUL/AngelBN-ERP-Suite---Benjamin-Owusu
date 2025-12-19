@@ -120,7 +120,7 @@ const App: React.FC = () => {
   const filteredNav = navItems.filter(item => canSeeView(item.id));
 
   const renderKPIs = () => (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
       <StatsCard stat={{ label: 'Live Signals', value: 2, icon: Signal, color: 'text-red-500' }} />
       <StatsCard stat={{ label: 'Ad Performance', value: '92%', icon: Megaphone, color: 'text-yellow-500' }} />
       <StatsCard stat={{ label: 'Media Assets', value: MOCK_ARCHIVE.length, icon: Archive, color: 'text-blue-500' }} />
@@ -129,24 +129,24 @@ const App: React.FC = () => {
   );
 
   const renderAnalyticsView = () => (
-    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
-      <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+    <div className="space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
-          <h2 className="text-3xl font-black dark:text-white tracking-tighter">Network Intelligence</h2>
-          <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mt-2">Historical Performance Data</p>
+          <h2 className="text-2xl md:text-3xl font-black dark:text-white tracking-tighter">Network Intelligence</h2>
+          <p className="text-[9px] md:text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">Historical Performance Data</p>
         </div>
-        <div className="flex bg-white dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 p-1">
+        <div className="flex bg-white dark:bg-white/5 rounded-xl md:rounded-2xl border border-gray-200 dark:border-white/10 p-1 w-full md:w-auto">
           {['Day', 'Week', 'Month'].map(t => (
-            <button key={t} className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${t === 'Week' ? 'bg-red-600 text-white shadow-lg' : 'text-gray-500 hover:text-white'}`}>{t}</button>
+            <button key={t} className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-lg md:rounded-xl text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest transition-all ${t === 'Week' ? 'bg-red-600 text-white shadow-lg' : 'text-gray-500 hover:text-white'}`}>{t}</button>
           ))}
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white dark:bg-white/5 p-8 rounded-[2.5rem] border border-gray-200 dark:border-white/10 shadow-2xl">
-          <h3 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-10 flex items-center gap-2">
-            <TrendingUp size={16} className="text-red-600" /> Aggregate Reach Index
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+        <div className="bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] border border-gray-200 dark:border-white/10 shadow-2xl">
+          <h3 className="text-xs md:text-sm font-black text-gray-500 uppercase tracking-wider md:tracking-widest mb-6 md:mb-10 flex items-center gap-2">
+            <TrendingUp size={14} className="text-red-600" /> Aggregate Reach Index
           </h3>
-          <div className="h-80">
+          <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={ADS_DATA}>
                 <defs>
@@ -164,11 +164,11 @@ const App: React.FC = () => {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="bg-white dark:bg-white/5 p-8 rounded-[2.5rem] border border-gray-200 dark:border-white/10 shadow-2xl">
-          <h3 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-10 flex items-center gap-2">
-            <BarChartIcon size={16} className="text-yellow-500" /> Platform Load Distribution
+        <div className="bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] border border-gray-200 dark:border-white/10 shadow-2xl">
+          <h3 className="text-xs md:text-sm font-black text-gray-500 uppercase tracking-wider md:tracking-widest mb-6 md:mb-10 flex items-center gap-2">
+            <BarChartIcon size={14} className="text-yellow-500" /> Platform Load Distribution
           </h3>
-          <div className="h-80">
+          <div className="h-64 md:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ADS_DATA}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
@@ -185,19 +185,19 @@ const App: React.FC = () => {
   );
 
   const renderScheduleView = () => (
-    <div className="bg-white dark:bg-white/5 rounded-3xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-xl animate-in fade-in slide-in-from-bottom-4 mb-20">
-      <div className="p-6 border-b border-gray-200 dark:border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div className="bg-white dark:bg-white/5 rounded-2xl md:rounded-3xl border border-gray-200 dark:border-white/10 overflow-hidden shadow-xl animate-in fade-in slide-in-from-bottom-4 mb-20">
+      <div className="p-4 md:p-6 border-b border-gray-200 dark:border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-xl font-black dark:text-white">Broadcast Pipeline</h2>
-          <p className="text-[10px] uppercase font-bold text-gray-500 tracking-widest mt-1">Managed Programming Index</p>
+          <h2 className="text-lg md:text-xl font-black dark:text-white">Broadcast Pipeline</h2>
+          <p className="text-[9px] md:text-[10px] uppercase font-bold text-gray-500 tracking-wider md:tracking-widest mt-1">Managed Programming Index</p>
         </div>
-        <div className="flex bg-gray-100 dark:bg-black/40 p-1 rounded-xl border border-gray-200 dark:border-white/5">
+        <div className="flex bg-gray-100 dark:bg-black/40 p-1 rounded-xl border border-gray-200 dark:border-white/5 w-full sm:w-auto">
           {['All', 'Radio', 'TV'].map(p => (
-            <button key={p} onClick={() => setActivePlatform(p as any)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${activePlatform === p ? 'bg-white dark:bg-red-600 text-black dark:text-white' : 'text-gray-500'}`}>{p}</button>
+            <button key={p} onClick={() => setActivePlatform(p as any)} className={`flex-1 sm:flex-none px-4 md:px-5 py-1.5 rounded-lg text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest transition-all ${activePlatform === p ? 'bg-white dark:bg-red-600 text-black dark:text-white shadow-md' : 'text-gray-500'}`}>{p}</button>
           ))}
         </div>
       </div>
-      <div className="p-6 space-y-3">
+      <div className="p-4 md:p-6 space-y-3">
         {filteredSchedule.map(item => (
           <ScheduleItemRow key={item.id} item={item} onEdit={setEditingItem} onRundown={setRundownItem} />
         ))}
@@ -206,43 +206,43 @@ const App: React.FC = () => {
   );
 
   const renderArchiveView = () => (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
-      <div className="flex justify-between items-end">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
         <div>
-          <h2 className="text-3xl font-black dark:text-white tracking-tighter">Media Repository</h2>
-          <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mt-2">Digital Asset Archive & Recovery</p>
+          <h2 className="text-2xl md:text-3xl font-black dark:text-white tracking-tighter">Media Repository</h2>
+          <p className="text-[9px] md:text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">Digital Asset Archive & Recovery</p>
         </div>
-        <button className="px-6 py-2.5 bg-red-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-red-500 transition-all flex items-center gap-2">
-          <Download size={14} /> Batch Export
+        <button className="px-4 md:px-6 py-2 md:py-2.5 bg-red-600 text-white rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest hover:bg-red-500 transition-all flex items-center gap-2">
+          <Download size={12} /> <span className="hidden sm:inline">Batch</span> Export
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
         {filteredArchive.map(asset => (
-          <div key={asset.id} className="bg-white dark:bg-white/5 p-6 rounded-[2rem] border border-gray-200 dark:border-white/10 group hover:border-red-600/30 transition-all">
-            <div className="flex justify-between items-start mb-6">
-              <div className="p-3 bg-red-600/10 text-red-600 rounded-2xl">
-                <PlayCircle size={24} />
+          <div key={asset.id} className="bg-white dark:bg-white/5 p-5 md:p-6 rounded-2xl md:rounded-[2rem] border border-gray-200 dark:border-white/10 group hover:border-red-600/30 transition-all">
+            <div className="flex justify-between items-start mb-4 md:mb-6">
+              <div className="p-2.5 md:p-3 bg-red-600/10 text-red-600 rounded-xl md:rounded-2xl">
+                <PlayCircle size={20} />
               </div>
               <span className={`text-[8px] font-black uppercase px-2 py-0.5 rounded-full ${asset.status === 'Public' ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'}`}>
                 {asset.status}
               </span>
             </div>
-            <h3 className="text-lg font-black dark:text-white mb-2 leading-tight group-hover:text-red-500 transition-colors">{asset.title}</h3>
-            <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-base md:text-lg font-black dark:text-white mb-2 leading-tight group-hover:text-red-500 transition-colors">{asset.title}</h3>
+            <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
               <div className="flex items-center gap-1.5">
-                <Calendar size={12} className="text-gray-500" />
-                <span className="text-[10px] font-bold text-gray-500">{asset.date}</span>
+                <Calendar size={11} className="text-gray-500" />
+                <span className="text-[9px] md:text-[10px] font-bold text-gray-500">{asset.date}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock size={12} className="text-gray-500" />
-                <span className="text-[10px] font-bold text-gray-500">{asset.duration}</span>
+                <Clock size={11} className="text-gray-500" />
+                <span className="text-[9px] md:text-[10px] font-bold text-gray-500">{asset.duration}</span>
               </div>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-white/5">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">{asset.category}</span>
-              <div className="flex gap-2">
-                <button className="p-2 text-gray-500 hover:text-white transition-colors"><Download size={16} /></button>
-                <button className="p-2 text-gray-500 hover:text-white transition-colors"><MoreVertical size={16} /></button>
+            <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-white/5">
+              <span className="text-[8px] md:text-[9px] font-black text-gray-500 uppercase tracking-wider md:tracking-widest">{asset.category}</span>
+              <div className="flex gap-1 md:gap-2">
+                <button className="p-1.5 md:p-2 text-gray-500 hover:text-white transition-colors"><Download size={14} /></button>
+                <button className="p-1.5 md:p-2 text-gray-500 hover:text-white transition-colors"><MoreVertical size={14} /></button>
               </div>
             </div>
           </div>
@@ -252,22 +252,22 @@ const App: React.FC = () => {
   );
 
   const renderAdsView = () => (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
-      <div className="flex justify-between items-end">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
         <div>
-          <h2 className="text-3xl font-black dark:text-white tracking-tighter">Traffic Control</h2>
-          <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mt-2">Commercial Slot & Campaign Monitoring</p>
+          <h2 className="text-2xl md:text-3xl font-black dark:text-white tracking-tighter">Traffic Control</h2>
+          <p className="text-[9px] md:text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">Commercial Slot & Campaign Monitoring</p>
         </div>
-        <div className="flex gap-3">
-          <button className="px-6 py-2.5 bg-white/5 border border-white/10 text-gray-400 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:text-white transition-all">
-            <Filter size={14} /> Filter Ads
+        <div className="flex gap-2 md:gap-3 w-full sm:w-auto">
+          <button className="flex-1 sm:flex-none px-4 md:px-6 py-2 md:py-2.5 bg-white/5 border border-white/10 text-gray-400 rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest hover:text-white transition-all flex items-center justify-center gap-2">
+            <Filter size={12} /> Filter
           </button>
-          <button className="px-6 py-2.5 bg-red-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-red-500 transition-all">
-            Add Campaign
+          <button className="flex-1 sm:flex-none px-4 md:px-6 py-2 md:py-2.5 bg-red-600 text-white rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest hover:bg-red-500 transition-all">
+            Add <span className="hidden sm:inline">Campaign</span>
           </button>
         </div>
       </div>
-      <div className="bg-white dark:bg-white/5 rounded-[2.5rem] border border-gray-200 dark:border-white/10 overflow-hidden">
+      <div className="bg-white dark:bg-white/5 rounded-2xl md:rounded-[2.5rem] border border-gray-200 dark:border-white/10 overflow-hidden overflow-x-auto">
         <table className="w-full text-left">
           <thead className="border-b border-white/5">
             <tr className="text-[10px] font-black text-gray-500 uppercase tracking-widest">
@@ -317,17 +317,17 @@ const App: React.FC = () => {
   );
 
   const renderEquipmentView = () => (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
-      <div className="flex justify-between items-end">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in slide-in-from-bottom-4 pb-20">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
         <div>
-          <h2 className="text-3xl font-black dark:text-white tracking-tighter">Infrastructure Health</h2>
-          <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mt-2">Hardware Inventory & Real-time Diagnostic Status</p>
+          <h2 className="text-2xl md:text-3xl font-black dark:text-white tracking-tighter">Infrastructure Health</h2>
+          <p className="text-[9px] md:text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">Hardware Inventory & Real-time Diagnostic Status</p>
         </div>
-        <button className="px-6 py-2.5 bg-yellow-500 text-black rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-yellow-400 transition-all flex items-center gap-2">
-          <ShieldAlert size={14} /> Incident Report
+        <button className="px-4 md:px-6 py-2 md:py-2.5 bg-yellow-500 text-black rounded-xl md:rounded-2xl text-[9px] md:text-[10px] font-black uppercase tracking-wider md:tracking-widest hover:bg-yellow-400 transition-all flex items-center gap-2">
+          <ShieldAlert size={12} /> <span className="hidden sm:inline">Incident</span> Report
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
         {filteredEquipment.map(eq => (
           <div key={eq.id} className="bg-white dark:bg-white/5 p-8 rounded-[2.5rem] border border-gray-200 dark:border-white/10 hover:-translate-y-1 transition-all">
             <div className="flex justify-between items-center mb-8">
@@ -371,13 +371,27 @@ const App: React.FC = () => {
     <div className={`min-h-screen relative flex flex-col transition-colors duration-500 ${isDarkMode ? 'bg-charcoal text-slate-200' : 'bg-[#f8fafc] text-slate-900'}`}>
       <div className="fixed inset-0 bg-[linear-gradient(rgba(229,57,53,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(229,57,53,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
 
-      <aside className={`fixed inset-y-0 left-0 z-[100] w-72 backdrop-blur-3xl border-r transform transition-transform duration-500 md:translate-x-0 ${isMobileMenuOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'} ${isDarkMode ? 'bg-black/80 border-white/10' : 'bg-white/90 border-gray-200'}`}>
-        <div className="h-24 flex items-center px-10">
-          <div className="flex items-baseline gap-0 font-black italic text-4xl tracking-tighter">
+      {/* Mobile overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99] md:hidden" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
+      )}
+
+      <aside className={`fixed inset-y-0 left-0 z-[100] w-72 backdrop-blur-3xl border-r transform transition-transform duration-300 md:translate-x-0 ${isMobileMenuOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'} ${isDarkMode ? 'bg-black/95 border-white/10' : 'bg-white/95 border-gray-200'}`}>
+        <div className="h-16 md:h-24 flex items-center justify-between px-6 md:px-10">
+          <div className="flex items-baseline gap-0 font-black italic text-3xl md:text-4xl tracking-tighter">
             <span className="text-white">a</span><span className="text-red-600">b</span><span className="text-abnYellow">n</span>
           </div>
+          <button 
+            className="md:hidden p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <X size={20} />
+          </button>
         </div>
-        <nav className="px-6 space-y-2">
+        <nav className="px-4 md:px-6 space-y-2 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 8rem)' }}>
           {filteredNav.map(item => (
             <button key={item.id} onClick={() => { setCurrentView(item.id); setIsMobileMenuOpen(false); }} className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 font-bold text-sm ${currentView === item.id ? 'bg-red-600 text-white shadow-lg' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}>
               <item.icon size={18} /> {item.label}
@@ -391,51 +405,51 @@ const App: React.FC = () => {
       </aside>
 
       <main className="md:ml-72 flex-1 flex flex-col relative z-10">
-        <header className="h-20 sticky top-0 z-[90] backdrop-blur-xl border-b border-gray-200 dark:border-white/5 flex items-center justify-between px-6 lg:px-10">
-           <div className="flex items-center gap-4">
-              <button className="md:hidden p-2 rounded-xl bg-white/5" onClick={() => setIsMobileMenuOpen(true)}><Menu size={20}/></button>
+        <header className="h-16 md:h-20 sticky top-0 z-[90] backdrop-blur-xl border-b border-gray-200 dark:border-white/5 flex items-center justify-between px-4 md:px-6 lg:px-10">
+           <div className="flex items-center gap-2 md:gap-4">
+              <button className="md:hidden p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors" onClick={() => setIsMobileMenuOpen(true)}><Menu size={18}/></button>
               <StudioClock />
            </div>
-           <div className="flex items-center gap-4">
+           <div className="flex items-center gap-2 md:gap-4">
               <div className="hidden lg:flex items-center gap-2 bg-black/40 px-4 py-2 rounded-2xl border border-white/5 group focus-within:ring-2 focus-within:ring-red-600/50">
                 <Search size={14} className="text-gray-500" />
                 <input type="text" placeholder="Access records..." className="bg-transparent border-none outline-none text-xs text-white placeholder-gray-700 w-32 focus:w-48 transition-all" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
               </div>
-              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors">{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}</button>
-              <div className="flex items-center gap-3 pl-4 border-l border-white/10 cursor-pointer" onClick={() => setIsSettingsOpen(true)}>
-                <div className="text-right hidden sm:block">
+              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 md:p-3 rounded-xl md:rounded-2xl bg-white/5 hover:bg-white/10 transition-colors">{isDarkMode ? <Sun size={18} /> : <Moon size={18} />}</button>
+              <div className="flex items-center gap-2 md:gap-3 pl-2 md:pl-4 border-l border-white/10 cursor-pointer" onClick={() => setIsSettingsOpen(true)}>
+                <div className="text-right hidden md:block">
                    <p className="text-[10px] font-black dark:text-white leading-none">{user.name}</p>
                    <p className="text-[8px] font-bold text-red-600 uppercase mt-0.5 tracking-widest">{user.role}</p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center font-black text-white shadow-xl">
+                <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center font-black text-white text-sm shadow-xl">
                    {user.name.charAt(0)}
                 </div>
               </div>
            </div>
         </header>
 
-        <div className="p-6 lg:p-10 flex-1 overflow-y-auto custom-scrollbar">
+        <div className="p-4 md:p-6 lg:p-10 flex-1 overflow-y-auto custom-scrollbar">
             {currentView === 'overview' && (
-              <div className="space-y-8 pb-20">
+              <div className="space-y-6 md:space-y-8 pb-20">
                  {renderKPIs()}
-                 <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-                    <div className="xl:col-span-8 space-y-8">
+                 <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 md:gap-8">
+                    <div className="xl:col-span-8 space-y-6 md:space-y-8">
                        {MOCK_SCHEDULE.find(i => i.status === 'On Air') && (
-                         <div className="relative overflow-hidden rounded-[2.5rem] bg-[#05070a] border border-white/5 shadow-2xl p-8 group">
-                            <div className="flex justify-between items-center mb-10">
-                               <div className="bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2 animate-pulse">LIVE FEED</div>
+                         <div className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-[#05070a] border border-white/5 shadow-2xl p-6 md:p-8 group">
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-10">
+                               <div className="bg-red-600 text-white text-[9px] md:text-[10px] font-black px-3 md:px-4 py-1 md:py-1.5 rounded-full uppercase tracking-wider md:tracking-widest flex items-center gap-2 animate-pulse">LIVE FEED</div>
                                <LiveWaveform />
                             </div>
-                            <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tighter leading-none mb-6 group-hover:text-abnYellow transition-colors">{MOCK_SCHEDULE.find(i => i.status === 'On Air')?.title}</h2>
-                            <button onClick={() => setRundownItem(MOCK_SCHEDULE.find(i => i.status === 'On Air')!)} className="px-8 py-3 bg-white text-black rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-abnYellow transition-colors">Rundown Console</button>
+                            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tighter leading-none mb-4 md:mb-6 group-hover:text-abnYellow transition-colors">{MOCK_SCHEDULE.find(i => i.status === 'On Air')?.title}</h2>
+                            <button onClick={() => setRundownItem(MOCK_SCHEDULE.find(i => i.status === 'On Air')!)} className="px-6 md:px-8 py-2.5 md:py-3 bg-white text-black rounded-xl md:rounded-2xl font-black text-[9px] md:text-[10px] uppercase tracking-wider md:tracking-widest hover:bg-abnYellow transition-colors">Rundown Console</button>
                          </div>
                        )}
                        {renderScheduleView()}
                     </div>
-                    <div className="xl:col-span-4 space-y-8">
-                       <div className="bg-white dark:bg-white/5 rounded-[2.5rem] p-8 border border-gray-200 dark:border-white/10 shadow-xl">
-                          <h3 className="text-xs font-black text-gray-500 uppercase tracking-widest mb-10 flex items-center justify-between">Audience Share <TrendingUp size={16} className="text-red-600" /></h3>
-                          <div className="h-64">
+                    <div className="xl:col-span-4 space-y-6 md:space-y-8">
+                       <div className="bg-white dark:bg-white/5 rounded-2xl md:rounded-[2.5rem] p-6 md:p-8 border border-gray-200 dark:border-white/10 shadow-xl">
+                          <h3 className="text-xs md:text-sm font-black text-gray-500 uppercase tracking-wider md:tracking-widest mb-6 md:mb-10 flex items-center justify-between">Audience Share <TrendingUp size={14} className="text-red-600" /></h3>
+                          <div className="h-56 md:h-64">
                              <ResponsiveContainer width="100%" height="100%">
                                 <PieChart>
                                   <Pie data={CHART_DATA} innerRadius={70} outerRadius={95} paddingAngle={8} dataKey="value" stroke="none" animationDuration={1500}>
