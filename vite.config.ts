@@ -6,6 +6,9 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       base: env.BASE_PATH || '/',
+      build: {
+        outDir: env.OUT_DIR || 'dist'
+      },
       server: {
         port: 3000,
         host: '0.0.0.0',

@@ -62,3 +62,24 @@ Key files and folders:
 - For local testing of Pages base path, you can run `BASE_PATH=/abn-broadcast-dashboard npm run build` and serve `dist`.
 - A `public/404.html` is included to support deep links on GitHub Pages.
  - Optional: add `public/CNAME` with your custom domain to configure Pages CNAME automatically.
+
+#### Branch-based Pages (main/docs)
+If you prefer Pages "Deploy from a branch" instead of Actions:
+
+1. In repo Settings → Pages, set Source to "Branch", select `main` and folder `/(docs)`.
+2. Build locally into `docs/` with the correct base path, then commit and push:
+
+PowerShell (Windows):
+
+```powershell
+$env:OUT_DIR = 'docs'
+$env:BASE_PATH = '/-Benjamin-Owusu-s-Angel-Broadcasting-ERP/'
+npm run build
+git add docs
+git commit -m "Build site to docs"
+git push
+```
+
+Notes:
+- `vite.config.ts` respects `OUT_DIR` (defaults to `dist`) and `BASE_PATH`.
+- Replace `/-Benjamin-Owusu-s-Angel-Broadcasting-ERP/` with your repo path if different.
