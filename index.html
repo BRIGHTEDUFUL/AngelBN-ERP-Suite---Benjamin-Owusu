@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABN Dashboard | Network Operations</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Primary Meta Tags -->
+    <title>ABN Broadcast Dashboard | Professional Network Operations Console</title>
+    <meta name="title" content="ABN Broadcast Dashboard | Professional Network Operations Console">
+    <meta name="description" content="Enterprise-grade broadcasting operations management system. Real-time monitoring, scheduling, analytics, and AI-powered assistance for radio and television networks.">
+    <meta name="keywords" content="broadcast dashboard, ERP, network operations, broadcasting, radio management, TV management, media operations, Angel Broadcasting Network">
+    <meta name="author" content="Benjamin Owusu">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brighteduful.github.io/AngelBN-ERP-Suite---Benjamin-Owusu/">
+    <meta property="og:title" content="ABN Broadcast Dashboard | Network Operations Console">
+    <meta property="og:description" content="Professional broadcast operations management with real-time monitoring, scheduling, and AI assistance for radio and TV networks.">
+    <meta property="og:image" content="https://brighteduful.github.io/AngelBN-ERP-Suite---Benjamin-Owusu/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://brighteduful.github.io/AngelBN-ERP-Suite---Benjamin-Owusu/">
+    <meta property="twitter:title" content="ABN Broadcast Dashboard | Network Operations Console">
+    <meta property="twitter:description" content="Enterprise-grade broadcasting operations management system with real-time monitoring and AI assistance.">
+    <meta property="twitter:image" content="https://brighteduful.github.io/AngelBN-ERP-Suite---Benjamin-Owusu/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#e53935">
+    <meta name="msapplication-TileColor" content="#02040a">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -17,17 +54,30 @@
               glass: 'rgba(255, 255, 255, 0.05)',
               abnRed: '#e53935',
               abnYellow: '#ffeb3b',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             }
           }
         }
       }
     </script>
+    
     <style>
-      body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+      body { 
+        font-family: 'Inter', sans-serif; 
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      /* Performance optimization */
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
     </style>
-<!-- Vite will bundle dependencies; importmap not required -->
 </head>
 <body class="bg-[#02040a]">
     <div id="root"></div>
