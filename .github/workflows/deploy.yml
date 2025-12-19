@@ -30,9 +30,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build with Vite (set BASE_PATH)
+      - name: Build with Vite (auto BASE_PATH)
         run: |
-          BASE_PATH="/${{ github.event.repository.name }}/" npm run build
+          REPO_NAME="${{ github.event.repository.name }}"
+          if [[ "$REPO_NAME" == *.github.io ]]; then
+            export BASE_PATH="/"
+          else
+            export BASE_PATH="/$REPO_NAME/"
+          fi
+          echo "Using BASE_PATH=$BASE_PATH"
+          npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
